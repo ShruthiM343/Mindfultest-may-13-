@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Movie Recommendation System</title>
+</head>
+<body>
+    <h1><center>Movie Recommendation System</center></h1>
+    <label for="dropdown">Select Genre:</label>
+    <select id="dropdown" onchange="filterMovies()">
+        <option value="all">All</option>
+        <option value="action">Action</option>
+        <option value="drama">Drama</option>
+        <option value="comedy">Comedy</option>
+    </select>
+    <br><br>
+    <div class="movies">
+        <div class="one action">
+            <h1>The Dark Knight</h1>
+            <p><bold>Genre:</bold> Action</p>
+        </div>
+        <div class="two action">
+            <h1>Inception</h1>
+            <p><bold>Genre:</bold> Action</p>
+        </div>
+        <div class="three comedy">
+            <h1>The Hangover</h1>
+            <p><bold>Genre:</bold> Comedy</p>
+        </div>
+        <div class="four comedy">
+            <h1>Superbad</h1>
+            <p><bold>Genre:</bold> Comedy</p>
+        </div>
+        <div class="five drama">
+            <h1>The Shawshank Redemption</h1>
+            <p><bold>Genre:</bold> Drama</p>
+        </div>
+    </div>
+    
+    <script>
+        function filterMovies() {
+            var selected = document.getElementById("dropdown").value;
+            var movies = document.querySelectorAll(".movies > div");
+            if (selected === "all") {
+            movies.forEach(function(movie) {
+        movie.style.display = "block";
+                });
+            } else {
+                movies.forEach(function(movie) {
+                if (movie.classList.contains(selectedGenre)) {
+                movie.style.display = "block";
+                    } else {
+                movie.style.display = "none";
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+       
